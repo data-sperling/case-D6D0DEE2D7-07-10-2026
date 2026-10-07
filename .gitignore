@@ -1,0 +1,19 @@
+# primary publications
+*.pdf
+*.ppt
+*.docx
+*.doc
+
+# compiled / generated
+*.pyc
+__pycache__/
+/figures/
+/plots/
+
+# documentation
+/docs
+
+# IDE
+/.idea
+/.idea/
+*.iml
