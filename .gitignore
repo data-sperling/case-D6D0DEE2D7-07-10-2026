@@ -17,3 +17,12 @@ __pycache__/
 /.idea
 /.idea/
 *.iml
+
+# "factory" scripts
+_*.py
+
+# venv
+uv.lock
+.venv
+pyproject.toml
+*.toml
