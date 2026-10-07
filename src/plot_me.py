@@ -9,7 +9,7 @@ from pathlib import Path
 
 DATA_PATH = Path( "../data")
 
-data = pd.read_csv(DATA_PATH / "")
+data = pd.read_csv(DATA_PATH / "sample-2-ATR.csv")
 
 plt.figure(figsize=(10, 6))
 
@@ -26,12 +26,12 @@ plt.gca().invert_xaxis()
 plt.xlabel("Wavenumber (cm$^{-1}$)")
 plt.ylabel("Absorbance (a.u.)")
 
-plt.title("Synthetic Beetroot ATR-FTIR Spectrum")
+plt.title("sample-2 ATR 1 cm-1")
 
 plt.tight_layout()
 
 plt.savefig(
-    "beetroot_ftir.png",
+    "sample-2-ATR.png",
     dpi=300,
     bbox_inches="tight"
 )
