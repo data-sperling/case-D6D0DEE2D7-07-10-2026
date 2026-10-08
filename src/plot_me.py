@@ -1,11 +1,9 @@
 import matplotlib
 matplotlib.use("Agg")
-
 import matplotlib.pyplot as plt
 import pandas as pd
-import csv
-
 from pathlib import Path
+
 
 DATA_PATH = Path( "../data")
 
@@ -20,7 +18,6 @@ plt.plot(
     linewidth=1
 )
 
-# FTIR convention: high wavenumber on the left
 plt.gca().invert_xaxis()
 
 plt.xlabel("Wavenumber (cm$^{-1}$)")
