@@ -23,9 +23,7 @@ library(readr)
 library(Biostrings)
 
 
-
 # should be in root
-
 fasta_files <- list.files(
   pattern = "\\.(fna|fa|fasta)(\\.gz)?$",
   ignore.case = TRUE
@@ -51,6 +49,7 @@ gff_file <- gff_files[1]
 cat("Using FASTA:", fasta_file, "\n")
 cat("Using GFF:", gff_file, "\n")
 
+
 # read FAST file
 genome <- readDNAStringSet(fasta_file, format = "fasta")
 
@@ -65,6 +64,7 @@ genome_summary <- data.frame(
   arrange(desc(length_bp))
 
 write_csv(genome_summary, "beetroot_sequence_lengths.csv")
+
 
 # plot chromosome vs sequence lengths
 p1 <- ggplot(
@@ -87,9 +87,9 @@ ggsave(
 
 print(p1)
 
+
 # read GFF/GFF3 annotation file as:
 # seqid, source, type, start, end, score, strand, phase, attributes
-
 gff <- read_tsv(
   gff_file,
   comment = "#",
@@ -106,6 +106,7 @@ gff <- read_tsv(
   ) |>
   filter(!is.na(start), !is.na(end))
 
+
 # id records
 genes <- gff |>
   filter(tolower(type) == "gene")
@@ -121,6 +122,7 @@ if (nrow(genes) == 0) {
 if (nrow(genes) == 0) {
   stop("No gene or mRNA/transcript records found in the GFF file.")
 }
+
 
 # plot gene distribution along chromosome
 gene_counts <- genes |>
@@ -148,6 +150,7 @@ ggsave(
 )
 
 print(p2)
+
 
 # plot GC content in windows along each sequence
 # def. window size: 1 million bp.
